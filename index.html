@@ -94,21 +94,23 @@
             box-shadow: inset -2px -2px 5px rgba(0,0,0,0.2);
         }
 
-        .video-container {
+        .media-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 1rem;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            background: #000;
         }
 
-        .video-container iframe {
+        .media-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
         .tap-target { touch-action: manipulation; }
@@ -186,17 +188,29 @@
             <!-- SURPRISE REVEAL -->
             <div id="surprise-reveal" class="hidden opacity-0 transition-all duration-1000 space-y-20">
                 
-                <section class="text-center space-y-6">
-                    <h3 class="text-3xl font-serif text-slate-800">A Special Message 🎥</h3>
-                    <div class="video-container max-w-2xl mx-auto border-4 border-white shadow-2xl">
-                        <iframe src="https://www.youtube.com/embed/S280T69vF6Y" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </section>
+                <div class="max-w-2xl mx-auto w-full px-2">
+                    <!-- Personal Video File Section -->
+                    <section class="space-y-6">
+                        <div class="text-center space-y-2">
+                            <h3 class="text-2xl md:text-3xl font-serif text-slate-800 flex items-center justify-center gap-3">
+                                <i data-lucide="video" class="text-pink-500"></i> A Special Message
+                            </h3>
+                            <p class="text-slate-500 text-xs italic">A personal clip just for you...</p>
+                        </div>
+                        <div class="media-container border-4 border-white shadow-2xl">
+                            <!-- Use playsinline for iOS compatibility -->
+                            <video controls playsinline webkit-playsinline poster="photo1.jpeg">
+                                <source src="video1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </section>
+                </div>
 
                 <!-- PHOTO GALLERY -->
                 <section class="space-y-12">
                     <h3 class="text-3xl font-serif text-center text-slate-800">Our Beautiful Memories 💖</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto px-4">
                         
                         <!-- PHOTO 1: That Perfect Smile -->
                         <div class="polaroid">
